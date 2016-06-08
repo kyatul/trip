@@ -1,0 +1,1 @@
+A rails application, displaying travel location and reviews.
