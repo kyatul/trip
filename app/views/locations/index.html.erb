@@ -13,7 +13,7 @@
 
         <% @locations.each do |location| %>
           <tr>
-            <td> <%= location.name %> </td>
+            <td> <%= link_to location.name, location_path(location)%> </td>
             <td> <%= location.city %> </td>
             <td> <%= link_to "Delete", location_path(location),
                      method: :delete,

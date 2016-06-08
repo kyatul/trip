@@ -14,6 +14,9 @@ Rails.application.routes.draw do
   # Example resource route (maps HTTP verbs to controller actions automatically):
   resources :locations
 
+  get 'location/:location_id/new_review' => 'reviews#new', as: :location_new_review
+  post 'location/:location_id/reviews' => 'reviews#create', as: :location_reviews
+
   # Example resource route with options:
   #   resources :products do
   #     member do

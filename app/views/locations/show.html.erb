@@ -16,8 +16,29 @@
         </tr>
         <tr>
           <td><%= link_to "Back", locations_path %></td>
-          <td></td>
+          <td><%= link_to "Write Review", location_new_review_path(:location_id => @location.id) %></td>
         </tr>
+    </div>
+  </div>
+</div>
+
+
+<div class="container">
+  <div class="row">
+    <div class="col-lg-3">
+    </div>
+    <div class="col-lg-6">
+      <table class="table">
+        <tr>
+          <th>Comment</th>
+          <th>Rating</th>
+        </tr>
+        <% @reviews.each do |review| %>
+          <tr>
+            <td> <%= review.comment %> </td>
+            <td> <%= review.rating %></td>
+          </tr>
+        <% end %>
     </div>
   </div>
 </div>
