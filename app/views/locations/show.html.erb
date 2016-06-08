@@ -1,0 +1,23 @@
+<% flash.each do |message_type, message| %>
+  <div class="alert alert-<%= message_type %>"><%= message %></div>
+<% end %>
+
+<div class="container">
+  <div class="row">
+    <div class="col-md-6 col-sm-offset-3 ">
+      <table class="table">
+        <tr>
+          <td><strong>Name</strong></td>
+          <td><%= @location.name %></td>
+        </tr>
+        <tr>
+          <td><strong>City</strong></td>
+          <td><%= @location.city %></td>
+        </tr>
+        <tr>
+          <td><%= link_to "Back", locations_path %></td>
+          <td></td>
+        </tr>
+    </div>
+  </div>
+</div>

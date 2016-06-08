@@ -1,0 +1,29 @@
+<div class="container">
+  <div class="row">
+    <div class="col-md-4 col-md-offset-6">
+      <h4>Location</h4>
+    </div>
+    <div class="col-md-8 col-md-offset-2">
+      <table class="table table-striped table-hover">
+        <tr>
+          <th>Name</th>
+          <th>City</th>
+          <th></th>
+        </tr>
+
+        <% @locations.each do |location| %>
+          <tr>
+            <td> <%= location.name %> </td>
+            <td> <%= location.city %> </td>
+            <td> <%= link_to "Delete", location_path(location),
+                     method: :delete,
+                     data: {confirm: 'Are you sure?' }, class: "btn btn-danger btn-sm" %></td>
+          </tr>
+        <% end %>
+      </table>
+    </div>
+    <div class="col-md-4 col-md-offset-2">
+      <%= link_to 'Add Location', new_location_path , class: "btn btn-primary" %>
+    </div>
+  </div>
+</div>
