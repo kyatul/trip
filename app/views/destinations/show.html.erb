@@ -16,6 +16,7 @@
         </tr>
         <tr>
           <td><%= link_to "Back", destinations_path %></td>
+          <td><%= link_to "Add Product", destination_new_location_path(:destination_id => @destination.id ) %></td>
         </tr>
     </div>
   </div>
@@ -34,7 +35,7 @@
         </tr>
         <% @locations.each do |location| %>
           <tr>
-            <td> <%= location.name %> </td>
+            <td> <%= link_to location.name, location_path(location) %> </td>
             <td> <%= location.city %></td>
           </tr>
         <% end %>

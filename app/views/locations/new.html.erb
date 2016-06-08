@@ -4,8 +4,8 @@
       <h4>Add new Location</h4>
     </div>
   </div>
-<%= form_for :location, url: locations_path,:html => {:class => "form-horizontal center"} do |f| %>
-
+<%= form_for :location, url: destination_locations_path,:html => {:class => "form-horizontal center"} do |f| %>
+    <%= f.hidden_field :destination_id, :value => @destination_id %>
     <div class="form-group">
       <%= f.label :name,class: "col-md-4 control-label"  %>
       <div class="col-md-4">
@@ -28,7 +28,7 @@
 
   <div class="form-group">
     <div class="col-md-8 col-md-offset-4">
-      <%= link_to "Back", locations_path  %>
+      <%= link_to "Back", destinations_path  %>
     </div>
   </div>
 <% end %>

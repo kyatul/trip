@@ -3,12 +3,17 @@ class LocationsController < ApplicationController
     @locations = Location.all
   end
 
+  def new
+    @destination_id = params[:destination_id]
+  end
+
   def create
-    @location = Location.new(location_params)
+    @destination = Destination.find(params[:location][:destination_id])
+    @location = @destination.locations.build(location_params)
 
     if @location.save
       flash[:success] = "Location Created"
-      redirect_to location_path(@location)
+      redirect_to destination_path(@destination)
     else
       render 'new'
     end
@@ -29,6 +34,6 @@ class LocationsController < ApplicationController
   private
 
     def location_params
-      params.require(:location).permit(:name, :city)
+      params.require(:location).permit(:name, :city, :destination_id)
     end
 end
