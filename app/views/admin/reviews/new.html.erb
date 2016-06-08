@@ -4,7 +4,7 @@
       <h4>Write Review</h4>
     </div>
   </div>
-<%= form_for :review, url: location_reviews_path,:html => {:class => "form-horizontal center"} do |f| %>
+<%= form_for :review, url: admin_location_reviews_path,:html => {:class => "form-horizontal center"} do |f| %>
     <%= f.hidden_field :location_id, :value => @location_id %>
     <div class="form-group">
       <%= f.label :comment,class: "col-md-4 control-label"  %>

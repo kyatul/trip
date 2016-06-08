@@ -1,4 +1,4 @@
-class ReviewsController < ApplicationController
+class Admin::ReviewsController < ApplicationController
   def index
     @reviews = Location.find(params[:id]).reviews
     @location_id = params[:id]
@@ -14,9 +14,9 @@ class ReviewsController < ApplicationController
 
     if @review.save
       flash[:success] = "Review Submitted"
-      redirect_to location_path(@location.id)
+      redirect_to admin_location_path(@location.id)
     else
-      redirect_to location_new_review_path(:location_id => @location.id)
+      redirect_to admin_location_new_review_path(:location_id => @location.id)
     end
   end
 

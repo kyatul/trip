@@ -7,16 +7,16 @@
     <div class="col-md-6 col-sm-offset-3 ">
       <table class="table">
         <tr>
-          <td><strong>State</strong></td>
-          <td><%= @destination.state %></td>
+          <td><strong>Name</strong></td>
+          <td><%= @location.name %></td>
         </tr>
         <tr>
           <td><strong>City</strong></td>
-          <td><%= @destination.city %></td>
+          <td><%= @location.city %></td>
         </tr>
         <tr>
-          <td><%= link_to "Back", destinations_path %></td>
-          <td><%= link_to "Add Product", destination_new_location_path(:destination_id => @destination.id ) %></td>
+          <td><%= link_to "Back", admin_locations_path %></td>
+          <td><%= link_to "Write Review", admin_location_new_review_path(:location_id => @location.id) %></td>
         </tr>
     </div>
   </div>
@@ -30,13 +30,13 @@
     <div class="col-lg-6">
       <table class="table">
         <tr>
-          <th>Location Name</th>
-          <th>Location City</th>
+          <th>Comment</th>
+          <th>Rating</th>
         </tr>
-        <% @locations.each do |location| %>
+        <% @reviews.each do |review| %>
           <tr>
-            <td> <%= link_to location.name, location_path(location) %> </td>
-            <td> <%= location.city %></td>
+            <td> <%= review.comment %> </td>
+            <td> <%= review.rating %></td>
           </tr>
         <% end %>
     </div>

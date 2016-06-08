@@ -1,15 +1,15 @@
 <div class=container>
   <div class="row">
     <div class="col-md-4 col-md-offset-4">
-      <h4>Add new Location</h4>
+      <h4>Add new Destination</h4>
     </div>
   </div>
-<%= form_for :location, url: destination_locations_path,:html => {:class => "form-horizontal center"} do |f| %>
-    <%= f.hidden_field :destination_id, :value => @destination_id %>
+<%= form_for :destination, url: admin_destinations_path,:html => {:class => "form-horizontal center"} do |f| %>
+
     <div class="form-group">
-      <%= f.label :name,class: "col-md-4 control-label"  %>
+      <%= f.label :state,class: "col-md-4 control-label"  %>
       <div class="col-md-4">
-        <%= f.text_field :name, class: "form-control" %>
+        <%= f.text_field :state, class: "form-control" %>
       </div>
     </div>
 
@@ -28,7 +28,7 @@
 
   <div class="form-group">
     <div class="col-md-8 col-md-offset-4">
-      <%= link_to "Back", destinations_path  %>
+      <%= link_to "Back", admin_destinations_path  %>
     </div>
   </div>
 <% end %>

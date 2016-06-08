@@ -1,4 +1,4 @@
-class DestinationsController < ApplicationController
+class Admin::DestinationsController < ApplicationController
   def index
     @destinations = Destination.all
   end
@@ -11,7 +11,7 @@ class DestinationsController < ApplicationController
 
     if @destination.save
       flash[:success] = "Destination Created"
-      redirect_to destinations_path
+      redirect_to admin_destinations_path
     else
       render 'new'
     end
@@ -26,7 +26,7 @@ class DestinationsController < ApplicationController
     @destination = Destination.find(params[:id])
     @destination.destroy
 
-    redirect_to destinations_path
+    redirect_to admin_destinations_path
   end
 
   private

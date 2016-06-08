@@ -14,8 +14,8 @@
         <% @destinations.each do |destination| %>
           <tr>
             <td> <%= destination.state %> </td>
-            <td> <%= link_to destination.city, destination_path(destination)%> </td>
-            <td> <%= link_to "Delete", destination_path(destination),
+            <td> <%= link_to destination.city, admin_destination_path(destination)%> </td>
+            <td> <%= link_to "Delete", admin_destination_path(destination),
                      method: :delete,
                      data: {confirm: 'Are you sure?' }, class: "btn btn-danger btn-sm" %></td>
           </tr>
@@ -23,7 +23,7 @@
       </table>
     </div>
     <div class="col-md-4 col-md-offset-2">
-      <%= link_to 'Add Destination', new_destination_path , class: "btn btn-primary" %>
+      <%= link_to 'Add Destination', new_admin_destination_path , class: "btn btn-primary" %>
     </div>
   </div>
 </div>

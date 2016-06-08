@@ -3,7 +3,6 @@ Rails.application.routes.draw do
   # See how all your routes lay out with "rake routes".
 
   # You can have the root of your site routed with "root"
-  root 'locations#index'
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
@@ -12,13 +11,15 @@ Rails.application.routes.draw do
   #   get 'products/:id/purchase' => 'catalog#purchase', as: :purchase
 
   # Example resource route (maps HTTP verbs to controller actions automatically):
-  resources :destinations, :locations
+  namespace :admin do
+    resources :destinations, :locations
+  end
 
-  get 'destination/:destination_id/new_location' => 'locations#new', as: :destination_new_location
-  post 'destination/:destination_id/locations' => 'locations#create', as: :destination_locations
+  get 'admin/destination/:destination_id/new_location' => 'admin/locations#new', as: :admin_destination_new_location
+  post 'admin/destination/:destination_id/locations' => 'admin/locations#create', as: :admin_destination_locations
 
-  get 'location/:location_id/new_review' => 'reviews#new', as: :location_new_review
-  post 'location/:location_id/reviews' => 'reviews#create', as: :location_reviews
+  get 'admin/location/:location_id/new_review' => 'admin/reviews#new', as: :admin_location_new_review
+  post 'admin/location/:location_id/reviews' => 'admin/reviews#create', as: :admin_location_reviews
 
   # Example resource route with options:
   #   resources :products do
