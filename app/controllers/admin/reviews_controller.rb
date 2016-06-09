@@ -20,6 +20,20 @@ class Admin::ReviewsController < ApplicationController
     end
   end
 
+  def status
+    @review = Review.find(params[:id])
+
+    @review.status == 'approve' ? @review.update(status: 'unapprove') : @review.update(status: 'approve')
+    redirect_to admin_location_path(:id => @review.location_id)
+  end
+
+  def destroy
+    @review = Review.find(params[:id])
+    @review.destroy
+
+    redirect_to admin_location_path(:id => @review.location_id)
+  end
+
   private
 
     def review_params

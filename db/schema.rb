@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160608120334) do
+ActiveRecord::Schema.define(version: 20160609061709) do
 
   create_table "destinations", force: :cascade do |t|
     t.string   "state"
@@ -32,8 +32,9 @@ ActiveRecord::Schema.define(version: 20160608120334) do
     t.string   "comment"
     t.integer  "rating"
     t.integer  "location_id"
-    t.datetime "created_at",  null: false
-    t.datetime "updated_at",  null: false
+    t.datetime "created_at",                         null: false
+    t.datetime "updated_at",                         null: false
+    t.string   "status",      default: "unapproved"
   end
 
 end

@@ -32,11 +32,18 @@
         <tr>
           <th>Comment</th>
           <th>Rating</th>
+          <th></th>
+          <th></th>
         </tr>
         <% @reviews.each do |review| %>
           <tr>
             <td> <%= review.comment %> </td>
             <td> <%= review.rating %></td>
+            <td> <%= link_to review.status == 'approve' ? 'Unapprove' : 'Approve',
+                     admin_review_status_path(review), class: "btn btn-primary btn-sm" %></td>
+            <td> <%= link_to "Trash", admin_review_path(review),
+                     method: :delete,
+                     data: {confirm: 'Are you sure?' }, class: "btn btn-danger btn-sm" %></td>
           </tr>
         <% end %>
     </div>
